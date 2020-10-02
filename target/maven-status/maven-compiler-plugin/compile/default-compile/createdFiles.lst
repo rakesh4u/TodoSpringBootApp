@@ -1,0 +1,8 @@
+com\deloitte\todo\dao\Users.class
+com\deloitte\todo\dao\Tasks.class
+com\deloitte\todo\repo\TaskRepo.class
+com\deloitte\todo\services\ResourceService.class
+com\deloitte\todo\utils\Utils.class
+com\deloitte\todo\AppController.class
+com\deloitte\todo\repo\UsersRepo.class
+com\deloitte\todo\AppMain.class
