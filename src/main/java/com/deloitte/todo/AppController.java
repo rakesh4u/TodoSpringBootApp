@@ -19,6 +19,8 @@ import com.deloitte.todo.dao.Tasks;
 import com.deloitte.todo.dao.Users;
 import com.deloitte.todo.services.ResourceService;
 
+import ch.qos.logback.core.status.Status;
+
 @Controller
 @SessionAttributes("userObj")
 public class AppController {
@@ -132,7 +134,7 @@ public class AppController {
 
 	@RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
 	public String updateTask(ModelMap model, @RequestParam String taskId, @RequestParam String taskDesc,
-			@RequestParam String checkbox,@PathVariable(name ="id") String id) {
+			@RequestParam(required = false)  String checkbox,@PathVariable(name ="id") String id) {
 		System.out.println("------------Inside updateTask()---------------");		
 	
 		try {
@@ -141,7 +143,12 @@ public class AppController {
 			System.out.println("Tasks id::" + taskId);
 			System.out.println("Status id::" + checkbox);
 			System.out.println("Users id::" + id);
+			if(checkbox==null){
+				checkbox="FALSE";
+			}else {
 			checkbox="TRUE";
+			}
+			System.out.println("CheckBOX::"+checkbox);
 		    resourceService.updateTask(taskDesc,Integer.parseInt(taskId),checkbox);
 		    System.out.println("updated Task successfully::");
 		} catch (Exception e) {
