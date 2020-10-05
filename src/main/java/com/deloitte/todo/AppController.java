@@ -56,7 +56,7 @@ public class AppController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(ModelMap model, @RequestParam String username, @RequestParam String password) {
-		System.out.println("------------Inside login()---------------");
+		System.out.println("-------------Inside login()---------------");
 		try {
 			int userID = resourceService.validateUsers(username, password);
 			System.out.println("UserID is::" + userID);
